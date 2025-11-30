@@ -4,6 +4,7 @@ from PIL import ImageGrab, ImageTk, Image
 import pyautogui
 from keyboard import add_hotkey
 from sys import exit
+import os
 
 class ScreenMagnifier:
     def __init__(self):
@@ -108,7 +109,7 @@ class ScreenMagnifier:
             
             self.canvas.create_image(self.size//2, self.size//2, image=self.photo)
             
-            self.cursor = ImageTk.PhotoImage(Image.open("cur.png"))
+            self.cursor = ImageTk.PhotoImage(Image.open(os.path.dirname(os.path.abspath(__file__))+r"/cur.png"))
             self.canvas.create_image(self.size//2, self.size//2, image=self.cursor)
             
             self.root.after(self.update_delay, self.update)
@@ -119,7 +120,7 @@ class ScreenMagnifier:
 if __name__ == "__main__":
     root = tk.Tk()
     root.withdraw()  
-    ScreenMagnifier()
+    showinfo("Внимание!", "Экранная лупа в режиме ожидания. Нажмите Shift + alt + w для открытия.")
     add_hotkey("Shift+alt+w", ScreenMagnifier)
     
     root.mainloop()
