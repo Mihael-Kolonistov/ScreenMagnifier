@@ -64,7 +64,7 @@ class ScreenMagnifier:
         }
         
         tk.Button(ins, text="Вернуть масштаб", command=reini, **button_style).grid(column=0, row=0, padx=3, sticky="ns")
-        tk.Button(ins, text="Помощь", command=lambda : showinfo("Подсказка", "После нажатия ПКМ приложение останется в режиме ожидания. \nДля запуска нажмите Shift + alt + w\nДля полного закрытия нажмите 'Выйти'"), **button_style).grid(column=1, row=0, padx=3, sticky="ns")
+        tk.Button(ins, text="Помощь", command=lambda : showinfo("Подсказка", "После нажатия ПКМ приложение останется в режиме ожидания. \nДля запуска нажмите alt + 2\nДля полного закрытия нажмите 'Выйти'\nДля изменеия масштаба покрутите колесико мыши, наведя курсор на окно с лупой"), **button_style).grid(column=1, row=0, padx=3, sticky="ns")
         tk.Button(ins, text="Выйти", command=lambda: exit(0), **exbutton_style).grid(column=2, row=0, padx=3, sticky="ew")
         
         
@@ -120,7 +120,7 @@ class ScreenMagnifier:
 if __name__ == "__main__":
     root = tk.Tk()
     root.withdraw()  
-    showinfo("Внимание!", "Экранная лупа в режиме ожидания. Нажмите Shift + alt + w для открытия.")
-    add_hotkey("Shift+alt+w", ScreenMagnifier)
+    showinfo("Внимание!", "Экранная лупа в режиме ожидания. Нажмите alt + 2 для открытия.")
+    add_hotkey("alt + 2", ScreenMagnifier)
     
     root.mainloop()
